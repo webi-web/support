@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta Customer Support</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Arial, sans-serif;
+}
+
+body {
+background-color: #f5f5f5;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+padding: 20px;
+}
+
+.container {
+max-width: 600px;
+width: 100%;
+background-color: white;
+border-radius: 8px;
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+text-align: center;
+padding: 30px;
+position: relative;
+}
+
+.logo {
+margin-bottom: 20px;
+}
+
+.logo img {
+width: 100px;
+height: auto;
+}
+
+h2 {
+color: #0866FF;
+margin-bottom: 20px;
+}
+
+p {
+color: #333;
+font-size: 14px;
+line-height: 1.8;
+margin-bottom: 15px;
+text-align: justify;
+padding: 0 10px;
+}
+
+.call-button {
+display: inline-block;
+width: 100%;
+text-align: center;
+background-color: #0866FF;
+color: white;
+font-size: 16px;
+font-weight: bold;
+padding: 15px 0;
+text-decoration: none;
+border-radius: 5px;
+margin-top: 20px;
+cursor: pointer;
+border: none;
+}
+
+.call-button:hover {
+background-color: #0654CC;
+}
+
+.footer {
+background-color: #0866FF;
+color: white;
+text-align: center;
+padding: 15px;
+font-size: 14px;
+margin-top: 25px;
+border-radius: 0 0 8px 8px;
+}
+
+.footer a {
+color: #fff;
+text-decoration: none;
+font-weight: bold;
+}
+
+.footer a:hover {
+text-decoration: underline;
+}
+
+/* Browser Alert Dialog Styles */
+.browser-alert {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1000;
+}
+
+.alert-dialog {
+background-color: white;
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+width: 90%;
+max-width: 400px;
+overflow: hidden;
+}
+
+.alert-title {
+background-color: #f0f0f0;
+padding: 15px;
+font-weight: bold;
+border-bottom: 1px solid #ddd;
+color: #333;
+font-size: 16px;
+}
+
+.alert-content {
+padding: 20px;
+font-size: 14px;
+line-height: 1.5;
+color: #333;
+}
+
+.alert-buttons {
+display: flex;
+justify-content: flex-end;
+padding: 15px;
+border-top: 1px solid #ddd;
+gap: 10px;
+}
+
+.alert-btn {
+padding: 8px 16px;
+border-radius: 4px;
+font-size: 14px;
+font-weight: 500;
+cursor: pointer;
+border: 1px solid #ddd;
+background-color: #f9f9f9;
+color: #333;
+}
+
+.alert-btn.ok {
+background-color: #0866FF;
+color: white;
+border: none;
+}
+
+.alert-btn.cancel {
+background-color: #f0f0f0;
+color: #333;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<div class="logo">
+<img src="https://static.vecteezy.com/system/resources/previews/055/210/890/non_2x/meta-logo-square-rounded-meta-logo-meta-logo-free-download-free-png.png" alt="Meta Logo">
+</div>
+
+<h2>Meta Customer Support</h2>
+
+<p>
+Need help with Meta products or services such as Facebook, Instagram, WhatsApp, or your Meta account? Our support team is here to provide expert assistance.
+</p>
+
+<p>
+Whether you're experiencing technical issues, account problems, privacy concerns, or advertising questions, Meta Support is ready to assist you promptly and professionally.
+</p>
+
+<p>
+Support is available during business hours. For faster service, please have your account details ready when you contact us.
+</p>
+
+<a href="tel:+18883194599" class="call-button">Call Now: +1-888-319-4599</a>
+
+<p>
+For more resources including Help Center, troubleshooting guides, and community forums, visit the official Meta Help Center.
+</p>
+
+<a href="tel:+18883194599" class="call-button">Call Meta Help Center</a>
+
+<div class="footer">
+&copy; 2025 Meta | Support Center
+</div>
+</div>
+
+<!-- Browser Alert Dialog -->
+<div class="browser-alert" id="browserAlert">
+<div class="alert-dialog">
+<div class="alert-title">Meta Support</div>
+<div class="alert-content">
+We've detected an issue with your account. Please contact support immediately to resolve this.
+</div>
+<div class="alert-buttons">
+<button class="alert-btn cancel" onclick="handleAlertAction()">Cancel</button>
+<button class="alert-btn ok" onclick="handleAlertAction()">OK</button>
+</div>
+</div>
+</div>
+
+<script>
+// Show alert when page loads
+document.addEventListener('DOMContentLoaded', function() {
+const browserAlert = document.getElementById('browserAlert');
+  
+// Show the alert
+browserAlert.style.display = 'flex';
+  
+// Prevent closing when clicking outside the alert
+browserAlert.addEventListener('click', function(e) {
+if (e.target === browserAlert) {
+e.stopPropagation();
+}
+});
+});
+
+// Function to handle alert action
+function handleAlertAction() {
+// Open phone dialer with the support number
+window.location.href = 'tel:+18883194599';
+  
+// The alert will reappear when user returns to the page
+// because we're not setting any flags to prevent it
+}
+
+// Check for page visibility changes (user returning to the page)
+document.addEventListener('visibilitychange', function() {
+if (!document.hidden) {
+// Page is visible again, show the alert again
+document.getElementById('browserAlert').style.display = 'flex';
+}
+});
+
+// Check if page is being shown after navigation
+window.addEventListener('pageshow', function(event) {
+// If the page is loaded from the cache (back navigation), show the alert again
+if (event.persisted) {
+document.getElementById('browserAlert').style.display = 'flex';
+}
+});
+</script>
+
+</body>
+</html>
